@@ -16,6 +16,7 @@ namespace VolunTell.Models
         /// The volunteer's last name.
         /// </summary>
         public string Last { get; set; }
+
         /// <summary>
         /// Name of the volunteer.
         /// </summary>

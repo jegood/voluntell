@@ -36,5 +36,10 @@ namespace VolunTell.Models
         /// The time of event registration.
         /// </summary>
         public DateTime RegistrationTime { get; set; }
+
+        /// <summary>
+        /// The id associated with the organization running this event.
+        /// </summary>
+        public Guid OrganizationId { get; set; }
     }
 }
