@@ -34,7 +34,7 @@ namespace VolunTell.Controllers
         /// </summary>
         /// <returns>A list of organizations.</returns>
         [HttpGet]
-        [Route("/nonprofits")]
+        [Route("nonprofits")]
         public async Task<List<Organization>> GetOrganizationsAsync(CancellationToken token)
         {
             var result = await _organizationService.GetOrganizationsAsync(token);
@@ -53,7 +53,7 @@ namespace VolunTell.Controllers
         /// <param name="organization"></param>
         /// <returns>A list of events for the given organization.</returns>
         [HttpGet]
-        [Route("/nonprofits/{nonprofitName}/events")]
+        [Route("nonprofits/{nonprofitName}/events")]
         public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName, CancellationToken token)
         {
             var result = await _organizationService.GetEventsForOrganizationByNameAsync(organizationName, token);
@@ -72,7 +72,7 @@ namespace VolunTell.Controllers
         /// <param name="organizationId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("/nonprofits/{nonprofitId}/events/")]
+        [Route("nonprofits/{nonprofitId}/events/")]
         public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId, CancellationToken token)
         {
             var result = await _organizationService.GetEventsForOrganizationByIdAsync(organizationId, token);
@@ -91,7 +91,7 @@ namespace VolunTell.Controllers
         /// <param name="organizationId"></param>
         /// <returns>A list of volunteers across all events.</returns>
         [HttpGet]
-        [Route("/nonprofits/{nonprofitId}/volunteers")]
+        [Route("nonprofits/{nonprofitId}/volunteers")]
         public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId, CancellationToken token)
         {
             var result = await _organizationService.GetVolunteersForEventsAsync(organizationId, token);

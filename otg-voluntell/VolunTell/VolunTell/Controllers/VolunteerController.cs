@@ -32,7 +32,7 @@ namespace VolunTell.Controllers
         /// <param name="volunteer"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("/volunteers/add")]
+        [Route("volunteers/add")]
         public async Task<Guid> AddVolunteerAsync(Volunteer volunteer, CancellationToken token)
         {
             return await _volunteerService.AddVolunteerAsync(volunteer, token);
