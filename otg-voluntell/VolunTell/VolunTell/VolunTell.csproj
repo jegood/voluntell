@@ -100,7 +100,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Volunteer.cs" />
-    <Compile Include="OrganizationDataAdapter.cs" />
+    <Compile Include="DataAdapters\OrganizationDataAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\OrganizationService.cs" />

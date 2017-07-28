@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using VolunTell.IDataAdapters;
 using VolunTell.Models;
 
 namespace VolunTell
 {
-    public class OrganizationDataAdapter
+    public class OrganizationDataAdapter : IOrganizationDataAdapter
     {
         /// <summary>
         /// Returns a list of organizations.
         /// </summary>
         /// <returns>A list of organizations.</returns>
-        public async Task<List<Organization>> GetOrganizationsAsync()
+        public async Task<List<Organization>> GetOrganizationsAsync(CancellationToken token)
         {
             throw new NotImplementedException();
             //return organizations;
@@ -24,7 +26,7 @@ namespace VolunTell
         /// </summary>
         /// <param name="organization"></param>
         /// <returns>A list of events for the given organization.</returns>
-        public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName)
+        public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName, CancellationToken token)
         {
             throw new NotImplementedException();
             //return events;
@@ -35,7 +37,7 @@ namespace VolunTell
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
-        public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId)
+        public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId, CancellationToken token)
         {
             throw new NotImplementedException();
             //return events;
@@ -46,7 +48,7 @@ namespace VolunTell
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns>A list of volunteers across all events.</returns>
-        public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId)
+        public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId, CancellationToken token)
         {
             throw new NotImplementedException();
             // return volunteers;

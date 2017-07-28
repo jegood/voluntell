@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using VolunTell.IDataAdapters;
@@ -22,7 +23,7 @@ namespace VolunTell.Services
             _dataAdapter = dataAdapter;
         }
 
-        public async Task<Guid> AddVolunteerAsync(Volunteer volunteer)
+        public async Task<Guid> AddVolunteerAsync(Volunteer volunteer, CancellationToken token)
         {
             if (volunteer == null)
             {
@@ -49,7 +50,7 @@ namespace VolunTell.Services
                 throw new ArgumentNullException(nameof(volunteer.Last));
             }
 
-            return await _dataAdapter.AddVolunteerAsync(volunteer);
+            return await _dataAdapter.AddVolunteerAsync(volunteer, token);
         }
     }
 }

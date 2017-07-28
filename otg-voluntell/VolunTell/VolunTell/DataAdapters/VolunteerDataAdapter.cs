@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using VolunTell.IDataAdapters;
@@ -10,11 +11,9 @@ namespace VolunTell
 {
     public class VolunteerDataAdapter : IVolunteerDataAdapter
     {
-        public async Task<Guid> AddVolunteerAsync(Volunteer volunteer)
+        public async Task<Guid> AddVolunteerAsync(Volunteer volunteer, CancellationToken token)
         {
-            // Do the sql calls here
-            //throw new NotImplementedException();
-
+            
             return volunteer.ReferralId;
         }
     }
