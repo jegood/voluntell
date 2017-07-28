@@ -86,16 +86,20 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Controllers\VolunteerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IDataAdapters\IOrganizationDataAdapter.cs" />
     <Compile Include="IDataAdapters\IVolunteerDataAdapter.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="OrganizationDataAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EventService.cs" />
+    <Compile Include="Services\OrganizationService.cs" />
     <Compile Include="Services\VolunteerService.cs" />
     <Compile Include="VolunteerDataAdapter.cs" />
   </ItemGroup>
