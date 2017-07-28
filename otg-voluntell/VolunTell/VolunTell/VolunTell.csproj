@@ -43,6 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Blackbaud.DataAccess.Contracts, Version=1.1.730.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Blackbaud.DataAccess.Contracts.1.1.730.1\lib\Blackbaud.DataAccess.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Blackbaud.DataAccess.SqlUtility, Version=1.2.17153.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Blackbaud.DataAccess.SqlUtility.1.2.17153.1\lib\Blackbaud.DataAccess.SqlUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Blackbaud.Formatting, Version=1.0.875.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Blackbaud.Formatting.1.0.875.1\lib\Blackbaud.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>

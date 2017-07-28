@@ -10,7 +10,7 @@ namespace VolunTell.Models
         /// <summary>
         /// the user id for the current node
         /// </summary>
-        public string UserId { get; set; }
+        public string Id { get; set; }
         
         /// <summary>
         /// The other children within the tree

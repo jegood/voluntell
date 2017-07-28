@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -38,7 +39,7 @@ namespace VolunTell.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("events/add")]
-        public async Task<Guid> AddEventAsync(Event newEvent)
+        public async Task<Guid> AddEventAsync(Event newEvent, CancellationToken token)
         {
             return await _eventService.AddEventAsync(newEvent);
         }
@@ -50,7 +51,7 @@ namespace VolunTell.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("/events/{eventId}/connectionTree")]
-        public async Task<ConnectionTree> GetConnectionsAsync(Guid eventId)
+        public async Task<ConnectionTree> GetConnectionsAsync(Guid eventId, CancellationToken token)
         {
             // TODO add to event service
             var result = await _eventService.GetConnectionsForEventAsync(eventId);
@@ -66,7 +67,7 @@ namespace VolunTell.Controllers
         /// </summary>
         [HttpGet]
         [Route("/events/{eventId}/volunteers")]
-        public async Task<List<Volunteer>> GetVolunteersForEventAsync(Guid eventId)
+        public async Task<List<Volunteer>> GetVolunteersForEventAsync(Guid eventId, CancellationToken token)
         {
             var result = await _eventService.GetVolunteersForEventAsync(eventId);
             if (result == null)
