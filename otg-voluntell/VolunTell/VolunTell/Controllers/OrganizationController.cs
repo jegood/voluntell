@@ -52,7 +52,7 @@ namespace VolunTell.Controllers
         /// <param name="organization"></param>
         /// <returns>A list of events for the given organization.</returns>
         [HttpGet]
-        [Route("/nonprofits/{nonprofitName}/events")]
+        [Route("/nonprofits/{nonprofitName}/events/")]
         public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName)
         {
             var result = await _organizationService.GetEventsForOrganizationByNameAsync(organizationName);
@@ -71,7 +71,7 @@ namespace VolunTell.Controllers
         /// <param name="organizationId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("/nonprofits/{nonprofitId}/events/")]
+        [Route("/nonprofits/{nonprofitId}/volunteers/")]
         public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId)
         {
             var result = await _organizationService.GetEventsForOrganizationByIdAsync(organizationId);

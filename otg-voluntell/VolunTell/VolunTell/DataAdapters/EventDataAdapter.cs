@@ -34,7 +34,8 @@ namespace VolunTell
             return await _sqlHelper.GetResultAsync<List<Volunteer>>(token, (cmd) =>
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-            }, async (reader, cancelToken) =>
+            },
+            async (reader, cancelToken) =>
             {
 
                 var list = new List<Volunteer>();
