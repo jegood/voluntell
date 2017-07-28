@@ -34,6 +34,7 @@ namespace VolunTell.Services
         public async Task<ConnectionTree> GetConnectionsForEventAsync(Guid eventId, CancellationToken token)
         {
             await Task.Yield();
+            throw new NotImplementedException();
             /// do lots of things here
         }
 

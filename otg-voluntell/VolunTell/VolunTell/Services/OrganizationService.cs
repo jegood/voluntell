@@ -25,7 +25,7 @@ namespace VolunTell.Services
 
         public async Task<List<Organization>> GetOrganizationsAsync(CancellationToken token)
         {
-            return await _organizationDataAdapter.GetOrganizationAsync(token);
+            return await _organizationDataAdapter.GetOrganizationsAsync(token);
         }
 
         public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName, CancellationToken token)
@@ -45,7 +45,7 @@ namespace VolunTell.Services
                 throw new ArgumentException(nameof(organizationId));
             }
 
-            return await _organizationDataAdapter.GetEventsForOrganizationIdAsync(organizationId, token);
+            return await _organizationDataAdapter.GetEventsForOrganizationByIdAsync(organizationId, token);
         }
 
         public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId, CancellationToken token)
