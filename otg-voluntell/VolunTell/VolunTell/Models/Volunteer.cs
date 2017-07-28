@@ -33,6 +33,11 @@ namespace VolunTell.Models
         public int Hours { get; set; }
 
         /// <summary>
+        /// The referrer form id.
+        /// </summary>
+        public Guid ReferralId { get; set; }
+
+        /// <summary>
         /// Avalanche hours.
         /// </summary>
         public int AvalancheHours { get; set; }

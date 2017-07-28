@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using VolunTell.Models;
 using VolunTell.Services;
 
 namespace VolunTell.Controllers
@@ -21,12 +23,21 @@ namespace VolunTell.Controllers
             _volunteerService = volunteerService;
         }
 
-        #region GET
+        #region Volunteer
         
-        // This may not be needed
-        //public Task<> Get
+        /// <summary>
+        /// Returns a unique event id for the given volunteer.
+        /// </summary>
+        /// <param name="volunteer"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("/volunteers/add")]
+        public async Task<Guid> AddVolunteerAsync(Volunteer volunteer)
+        {
+            return await _volunteerService.AddVolunteerAsync(volunteer);
+        }
 
-        #endregion GET
+        #endregion Volunteer
 
     }
 }
