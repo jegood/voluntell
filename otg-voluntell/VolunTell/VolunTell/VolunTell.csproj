@@ -91,12 +91,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConnectionTree.cs" />
+    <Compile Include="IDataAdapters\IVolunteerDataAdapter.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\VolunteerService.cs" />
+    <Compile Include="VolunteerDataAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
