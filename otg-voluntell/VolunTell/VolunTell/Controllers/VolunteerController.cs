@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -32,9 +33,9 @@ namespace VolunTell.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("/volunteers/add")]
-        public async Task<Guid> AddVolunteerAsync(Volunteer volunteer)
+        public async Task<Guid> AddVolunteerAsync(Volunteer volunteer, CancellationToken token)
         {
-            return await _volunteerService.AddVolunteerAsync(volunteer);
+            return await _volunteerService.AddVolunteerAsync(volunteer, token);
         }
 
         #endregion Volunteer

@@ -18,11 +18,6 @@ namespace VolunTell.Models
         public string Last { get; set; }
 
         /// <summary>
-        /// Name of the volunteer.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
         /// The volunteer's email address.
         /// </summary>
         public string EmailAddress { get; set; }
@@ -36,15 +31,5 @@ namespace VolunTell.Models
         /// The referrer form id.
         /// </summary>
         public Guid ReferralId { get; set; }
-
-        /// <summary>
-        /// Avalanche hours.
-        /// </summary>
-        public int AvalancheHours { get; set; }
-
-        /// <summary>
-        /// Total connections for this volunteer.
-        /// </summary>
-        public int Connections { get; set; }
     }
 }

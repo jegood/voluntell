@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -18,7 +19,7 @@ namespace VolunTell.Controllers
         
         #endregion Fields
 
-        public OrganizationController(OrganizationService organizationService)
+        public OrganizationController(OrganizationService organizationService, CancellationToken token)
         {
             if (organizationService == null)
             {
@@ -34,9 +35,9 @@ namespace VolunTell.Controllers
         /// <returns>A list of organizations.</returns>
         [HttpGet]
         [Route("/nonprofits")]
-        public async Task<List<Organization>> GetOrganizationsAsync()
+        public async Task<List<Organization>> GetOrganizationsAsync(CancellationToken token)
         {
-            var result = await _organizationService.GetOrganizationsAsync();
+            var result = await _organizationService.GetOrganizationsAsync(token);
 
             if (result == null)
             {
@@ -52,10 +53,10 @@ namespace VolunTell.Controllers
         /// <param name="organization"></param>
         /// <returns>A list of events for the given organization.</returns>
         [HttpGet]
-        [Route("/nonprofits/{nonprofitName}/events/")]
-        public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName)
+        [Route("/nonprofits/{nonprofitName}/events")]
+        public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName, CancellationToken token)
         {
-            var result = await _organizationService.GetEventsForOrganizationByNameAsync(organizationName);
+            var result = await _organizationService.GetEventsForOrganizationByNameAsync(organizationName, token);
 
             if (result == null)
             {
@@ -71,10 +72,10 @@ namespace VolunTell.Controllers
         /// <param name="organizationId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("/nonprofits/{nonprofitId}/volunteers/")]
-        public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId)
+        [Route("/nonprofits/{nonprofitId}/events/")]
+        public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId, CancellationToken token)
         {
-            var result = await _organizationService.GetEventsForOrganizationByIdAsync(organizationId);
+            var result = await _organizationService.GetEventsForOrganizationByIdAsync(organizationId, token);
 
             if (result == null)
             {
@@ -91,9 +92,9 @@ namespace VolunTell.Controllers
         /// <returns>A list of volunteers across all events.</returns>
         [HttpGet]
         [Route("/nonprofits/{nonprofitId}/volunteers")]
-        public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId)
+        public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId, CancellationToken token)
         {
-            var result = await _organizationService.GetVolunteersForEventsAsync(organizationId);
+            var result = await _organizationService.GetVolunteersForEventsAsync(organizationId, token);
 
             if (result == null)
             {
