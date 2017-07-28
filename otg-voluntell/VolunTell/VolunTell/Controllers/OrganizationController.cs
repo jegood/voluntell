@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using VolunTell.DataAdapterContracts;
 using VolunTell.Models;
 using VolunTell.Services;
 
@@ -35,7 +36,7 @@ namespace VolunTell.Controllers
         /// <returns>A list of organizations.</returns>
         [HttpGet]
         [Route("nonprofits")]
-        public async Task<List<Organization>> GetOrganizationsAsync(CancellationToken token)
+        public async Task<List<OrganizationGET>> GetOrganizationsAsync(CancellationToken token)
         {
             var result = await _organizationService.GetOrganizationsAsync(token);
 
@@ -44,7 +45,16 @@ namespace VolunTell.Controllers
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             }
 
-            return result;
+            List<OrganizationGET> organizations = new List<OrganizationGET>();
+
+            foreach(OrganizationGET getOrganization in result)
+            {
+                OrganizationGET newOrganization = new OrganizationGET();
+                newOrganization.Name = getOrganization.Name;
+                organizations.Add(newOrganization);
+            }
+
+            return organizations;
         }
 
         /// <summary>
@@ -54,7 +64,7 @@ namespace VolunTell.Controllers
         /// <returns>A list of events for the given organization.</returns>
         [HttpGet]
         [Route("nonprofits/{nonprofitName}/events")]
-        public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName, CancellationToken token)
+        public async Task<List<OrganizationNameGETEvent>> GetEventsForOrganizationByNameAsync(string organizationName, CancellationToken token)
         {
             var result = await _organizationService.GetEventsForOrganizationByNameAsync(organizationName, token);
 
@@ -63,7 +73,17 @@ namespace VolunTell.Controllers
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             }
 
-            return result;
+            List<OrganizationNameGETEvent> organizationEvents = new List<OrganizationNameGETEvent>();
+
+            foreach(OrganizationNameGETEvent organizationEvent in result)
+            {
+                OrganizationNameGETEvent newEvent = new OrganizationNameGETEvent();
+                newEvent.Id = organizationEvent.Id;
+                newEvent.Name = organizationEvent.Name;
+                organizationEvents.Add(newEvent);
+            }
+
+            return organizationEvents;
         }
 
         /// <summary>
@@ -73,7 +93,7 @@ namespace VolunTell.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("nonprofits/{nonprofitId}/events/")]
-        public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId, CancellationToken token)
+        public async Task<List<OrganizationIdGETEvent>> GetEventsForOrganizationByIdAsync(Guid organizationId, CancellationToken token)
         {
             var result = await _organizationService.GetEventsForOrganizationByIdAsync(organizationId, token);
 
@@ -82,7 +102,18 @@ namespace VolunTell.Controllers
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             }
 
-            return result;
+            List<OrganizationIdGETEvent> organizationEvents = new List<OrganizationIdGETEvent>();
+
+            foreach(OrganizationIdGETEvent organizationEvent in result)
+            {
+                OrganizationIdGETEvent getEvent = new OrganizationIdGETEvent();
+                getEvent.Id = organizationEvent.Id;
+                getEvent.Name = organizationEvent.Name;
+                getEvent.DateTime = organizationEvent.DateTime;
+                organizationEvents.Add(getEvent);
+            }
+
+            return organizationEvents;
         }
 
         /// <summary>
@@ -92,7 +123,7 @@ namespace VolunTell.Controllers
         /// <returns>A list of volunteers across all events.</returns>
         [HttpGet]
         [Route("nonprofits/{nonprofitId}/volunteers")]
-        public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId, CancellationToken token)
+        public async Task<List<EventVolunteer>> GetVolunteersForEventsAsync(Guid organizationId, CancellationToken token)
         {
             var result = await _organizationService.GetVolunteersForEventsAsync(organizationId, token);
 
@@ -101,7 +132,22 @@ namespace VolunTell.Controllers
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             }
 
-            return result;
+            List<EventVolunteer> eventVolunteers = new List<EventVolunteer>();
+
+            foreach(EventVolunteer volunteer in result)
+            {
+                EventVolunteer eventVolunteer = new EventVolunteer();
+                eventVolunteer.Id = volunteer.Id;
+                eventVolunteer.First = volunteer.First;
+                eventVolunteer.Last = volunteer.Last;
+                eventVolunteer.EmailAddress = volunteer.EmailAddress;
+                eventVolunteer.Hours = volunteer.Hours;
+                eventVolunteer.Connections = volunteer.Connections;
+                eventVolunteer.AvalancheHours = volunteer.AvalancheHours;
+                eventVolunteers.Add(eventVolunteer);
+            }
+            
+            return eventVolunteers;
         }
     }
 }

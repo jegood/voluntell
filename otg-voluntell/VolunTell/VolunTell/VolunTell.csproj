@@ -97,6 +97,10 @@
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Controllers\VolunteerController.cs" />
+    <Compile Include="DataAdapterContracts\EventVolunteer.cs" />
+    <Compile Include="DataAdapterContracts\OrganizationGET.cs" />
+    <Compile Include="DataAdapterContracts\OrganizationIdGETEvent.cs" />
+    <Compile Include="DataAdapterContracts\OrganizationNameGETEvent.cs" />
     <Compile Include="DataAdapters\EventDataAdapter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -127,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DataAdapterContracts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

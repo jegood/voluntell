@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using VolunTell.DataAdapterContracts;
 using VolunTell.Models;
 
 namespace VolunTell.Services
@@ -23,12 +24,12 @@ namespace VolunTell.Services
             _organizationDataAdapter = organizationDataAdapter;
         }
 
-        public async Task<List<Organization>> GetOrganizationsAsync(CancellationToken token)
+        public async Task<List<OrganizationGET>> GetOrganizationsAsync(CancellationToken token)
         {
             return await _organizationDataAdapter.GetOrganizationsAsync(token);
         }
 
-        public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName, CancellationToken token)
+        public async Task<List<OrganizationNameGETEvent>> GetEventsForOrganizationByNameAsync(string organizationName, CancellationToken token)
         {
             if (string.IsNullOrEmpty(organizationName))
             {
@@ -38,7 +39,7 @@ namespace VolunTell.Services
             return await _organizationDataAdapter.GetEventsForOrganizationByNameAsync(organizationName, token);
         }
 
-        public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId, CancellationToken token)
+        public async Task<List<OrganizationIdGETEvent>> GetEventsForOrganizationByIdAsync(Guid organizationId, CancellationToken token)
         {
             if (organizationId == null || organizationId == Guid.Empty)
             {
@@ -48,7 +49,7 @@ namespace VolunTell.Services
             return await _organizationDataAdapter.GetEventsForOrganizationByIdAsync(organizationId, token);
         }
 
-        public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId, CancellationToken token)
+        public async Task<List<EventVolunteer>> GetVolunteersForEventsAsync(Guid organizationId, CancellationToken token)
         {
             if (organizationId == null || organizationId == Guid.Empty)
             {
