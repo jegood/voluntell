@@ -19,6 +19,12 @@ namespace VolunTell.Controllers
         #endregion Fields
 
         #region Constructor
+
+        public EventController()
+        {
+            
+        }
+
         public EventController(EventService eventService)
         {
             if (eventService == null)

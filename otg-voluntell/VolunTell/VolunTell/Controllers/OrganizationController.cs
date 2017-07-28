@@ -20,6 +20,11 @@ namespace VolunTell.Controllers
         
         #endregion Fields
 
+        public OrganizationController()
+        {
+
+        }
+
         public OrganizationController(OrganizationService organizationService, CancellationToken token)
         {
             if (organizationService == null)

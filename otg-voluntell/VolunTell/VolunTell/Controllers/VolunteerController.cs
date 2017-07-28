@@ -14,6 +14,10 @@ namespace VolunTell.Controllers
     {
         private VolunteerService _volunteerService;
 
+        public VolunteerController()
+        {
+        }
+
         public VolunteerController(VolunteerService volunteerService)
         {
             if (volunteerService == null)
@@ -39,6 +43,13 @@ namespace VolunTell.Controllers
         }
 
         #endregion Volunteer
+
+        [HttpGet]
+        [Route("volunteers")]
+        public Guid GetGuid()
+        {
+            return Guid.NewGuid();
+        }
 
     }
 }
