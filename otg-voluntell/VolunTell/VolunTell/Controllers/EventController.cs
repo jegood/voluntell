@@ -41,7 +41,7 @@ namespace VolunTell.Controllers
         [Route("events/add")]
         public async Task<Guid> AddEventAsync(Event newEvent, CancellationToken token)
         {
-            return await _eventService.AddEventAsync(newEvent);
+            return await _eventService.AddEventAsync(newEvent, token);
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace VolunTell.Controllers
         public async Task<ConnectionTree> GetConnectionsAsync(Guid eventId, CancellationToken token)
         {
             // TODO add to event service
-            var result = await _eventService.GetConnectionsForEventAsync(eventId);
+            var result = await _eventService.GetConnectionsForEventAsync(eventId, token);
             if (result == null)
             {
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
@@ -69,7 +69,7 @@ namespace VolunTell.Controllers
         [Route("/events/{eventId}/volunteers")]
         public async Task<List<Volunteer>> GetVolunteersForEventAsync(Guid eventId, CancellationToken token)
         {
-            var result = await _eventService.GetVolunteersForEventAsync(eventId);
+            var result = await _eventService.GetVolunteersForEventAsync(eventId, token);
             if (result == null)
             {
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);

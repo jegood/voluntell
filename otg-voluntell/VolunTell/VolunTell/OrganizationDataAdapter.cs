@@ -15,6 +15,7 @@ namespace VolunTell
         /// <returns>A list of organizations.</returns>
         public async Task<List<Organization>> GetOrganizationsAsync()
         {
+            await Task.Yield();
             throw new NotImplementedException();
             //return organizations;
         }
@@ -26,6 +27,7 @@ namespace VolunTell
         /// <returns>A list of events for the given organization.</returns>
         public async Task<List<Event>> GetEventsForOrganizationByNameAsync(string organizationName)
         {
+            await Task.Yield();
             throw new NotImplementedException();
             //return events;
         }
@@ -37,6 +39,7 @@ namespace VolunTell
         /// <returns></returns>
         public async Task<List<Event>> GetEventsForOrganizationByIdAsync(Guid organizationId)
         {
+            await Task.Yield();
             throw new NotImplementedException();
             //return events;
         }
@@ -48,6 +51,7 @@ namespace VolunTell
         /// <returns>A list of volunteers across all events.</returns>
         public async Task<Volunteer> GetVolunteersForEventsAsync(Guid organizationId)
         {
+            await Task.Yield();
             throw new NotImplementedException();
             // return volunteers;
         }

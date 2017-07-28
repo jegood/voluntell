@@ -103,7 +103,7 @@
     </Compile>
     <Compile Include="IDataAdapters\IEventDataAdapter.cs" />
     <Compile Include="IDataAdapters\IOrganizationDataAdapter.cs" />
-    <Compile Include="Models\ConnectionTree - Copy.cs" />
+    <Compile Include="Models\AdjacencyMatrix.cs" />
     <Compile Include="Models\ConnectionTree.cs" />
     <Compile Include="IDataAdapters\IVolunteerDataAdapter.cs" />
     <Compile Include="Models\Event.cs" />

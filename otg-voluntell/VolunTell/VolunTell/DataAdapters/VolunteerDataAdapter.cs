@@ -14,7 +14,7 @@ namespace VolunTell
         {
             // Do the sql calls here
             //throw new NotImplementedException();
-
+            await Task.Yield();
             return volunteer.ReferralId;
         }
     }
