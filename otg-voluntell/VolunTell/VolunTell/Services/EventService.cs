@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
+using VolunTell.Models;
 
 namespace VolunTell.Services
 {
@@ -14,9 +16,9 @@ namespace VolunTell.Services
 
         #region Event
 
-        public async Task<Guid> AddEventAsync(Guid eventId)
+        public async Task<Guid> AddEventAsync(Event Data)
         {
-            // TODO
+           
         }
 
         #endregion Event
