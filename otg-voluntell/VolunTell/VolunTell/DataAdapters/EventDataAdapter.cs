@@ -13,10 +13,12 @@ namespace VolunTell
 {
     public class EventDataAdapter : IEventDataAdapter
     {
+
+        private SqlHelper _sqlHelper = new SqlHelper("Server=(local);Database=OTGBasic;Integrated Security=SSPI;");
         public async Task<Guid> AddEventAsync(Event Data, CancellationToken token)
         {
 
-            return await SqlHelper.GetScalarAsync<Guid>(token, (cmd) =>
+            return await _sqlHelper.GetScalarAsync<Guid>(token, (cmd) =>
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "dbo.USP_STORE_EVENT";
@@ -29,7 +31,7 @@ namespace VolunTell
 
         public async Task<List<Volunteer>> GetVolunteersForEventAsync(Guid eventId, CancellationToken token)
         {
-            return await SqlHelper.GetResultAsync<List<Volunteer>>(token, (cmd) =>
+            return await _sqlHelper.GetResultAsync<List<Volunteer>>(token, (cmd) =>
             {
                 cmd.CommandType = CommandType.StoredProcedure;
             }, async (reader, cancelToken) =>
