@@ -50,7 +50,7 @@ namespace VolunTell.Controllers
         /// <param name="eventId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("/events/{eventId}/connectionTree")]
+        [Route("events/{eventId}/connectionTree")]
         public async Task<ConnectionTree> GetConnectionsAsync(Guid eventId, CancellationToken token)
         {
             // TODO add to event service
@@ -66,7 +66,7 @@ namespace VolunTell.Controllers
         /// Returns a list of volunteers for a given event.
         /// </summary>
         [HttpGet]
-        [Route("/events/{eventId}/volunteers")]
+        [Route("events/{eventId}/volunteers")]
         public async Task<List<Volunteer>> GetVolunteersForEventAsync(Guid eventId, CancellationToken token)
         {
             var result = await _eventService.GetVolunteersForEventAsync(eventId, token);
