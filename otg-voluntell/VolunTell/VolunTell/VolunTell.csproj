@@ -92,6 +92,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IDataAdapters\IEventDataAdapter.cs" />
+    <Compile Include="Models\ConnectionTree - Copy.cs" />
     <Compile Include="Models\ConnectionTree.cs" />
     <Compile Include="IDataAdapters\IVolunteerDataAdapter.cs" />
     <Compile Include="Models\Event.cs" />

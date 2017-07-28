@@ -10,6 +10,10 @@ namespace VolunTell
 {
     public class EventDataAdapter : IEventDataAdapter
     {
+        public async Task<Guid> AddEventAsync(Event Data)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<List<Volunteer>> GetVolunteersForEventAsync(Guid eventId)
         {
