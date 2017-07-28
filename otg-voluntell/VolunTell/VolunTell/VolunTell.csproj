@@ -87,9 +87,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\VolunteerController.cs" />
+    <Compile Include="DataAdapters\EventDataAdapter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IDataAdapters\IEventDataAdapter.cs" />
     <Compile Include="Models\ConnectionTree.cs" />
     <Compile Include="IDataAdapters\IVolunteerDataAdapter.cs" />
     <Compile Include="Models\Event.cs" />
@@ -98,7 +100,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\VolunteerService.cs" />
-    <Compile Include="VolunteerDataAdapter.cs" />
+    <Compile Include="DataAdapters\VolunteerDataAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

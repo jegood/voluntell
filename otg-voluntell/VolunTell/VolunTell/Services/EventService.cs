@@ -11,14 +11,24 @@ namespace VolunTell.Services
     {
         public EventService()
         {
-            // Set up connection to database
+
         }
 
         #region Event
 
         public async Task<Guid> AddEventAsync(Event Data)
         {
-           
+            var result = 
+        }
+
+        public async Task<ConnectionTree> GetConnectionsForEventAsync(Guid eventId)
+        {
+
+        }
+
+        public async Task<List<Volunteer>> GetVolunteersForEventAsync(Guid eventId)
+        {
+
         }
 
         #endregion Event
